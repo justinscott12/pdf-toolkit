@@ -7,7 +7,12 @@
     "prebuild": "cp node_modules/pdfjs-dist/build/pdf.worker.min.mjs public/pdf.worker.min.mjs || true",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:ci": "npm run test:run && npm run test:e2e -- --project=chromium"
   },
   "dependencies": {
     "@radix-ui/react-progress": "^1.1.8",
@@ -35,6 +40,12 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.1.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/dom": "^10.4.0",
+    "jsdom": "^25.0.0",
+    "@playwright/test": "^1.49.0"
   }
 }

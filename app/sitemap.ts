@@ -26,6 +26,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
+  const guides = [
+    'how-to-merge-pdf',
+    'how-to-compress-pdf',
+    'how-to-split-pdf',
+    'how-to-edit-pdf',
+    'pdf-tools-comparison',
+  ]
+
+  const guidePages = guides.map((guide) => ({
+    url: `${baseUrl}/${guide}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
+  const legalPages = [
+    { url: `${baseUrl}/privacy`, priority: 0.3 },
+    { url: `${baseUrl}/terms`, priority: 0.3 },
+  ].map((page) => ({
+    url: page.url,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: page.priority,
+  }))
+
   return [
     {
       url: baseUrl,
@@ -34,6 +59,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     ...toolPages,
+    ...guidePages,
+    ...legalPages,
   ]
 }
 

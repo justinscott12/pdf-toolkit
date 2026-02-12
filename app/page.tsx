@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
+import Link from "next/link"
 import { FileText, Scissors, Minimize2, RotateCw, Image as ImageIcon, FileImage, FileX, Droplets, Edit3, Trash2, ArrowUpDown, Layers, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
@@ -127,6 +129,30 @@ export default function HomePage() {
     ]
   }
 
+  const organizationData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://pdftoolkit.com/#organization",
+    "name": "PDF Toolkit",
+    "url": "https://pdftoolkit.com",
+    "logo": "https://pdftoolkit.com/icon-512.png",
+    "description": "Free online PDF tools: merge, split, compress, edit, and convert PDFs. No sign-up. All processing in your browser."
+  }
+
+  const websiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "PDF Toolkit",
+    "url": "https://pdftoolkit.com",
+    "description": "Free PDF editor and PDF tools online. Merge, split, compress, rotate, convert PDFs—no subscription required.",
+    "publisher": { "@id": "https://pdftoolkit.com/#organization" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": { "@type": "EntryPoint", "urlTemplate": "https://pdftoolkit.com/tools/merge" },
+      "query-input": "required name=search_term_string"
+    }
+  }
+
   const faqStructuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -192,17 +218,29 @@ export default function HomePage() {
 
   return (
     <>
-      <StructuredData data={structuredData} />
-      <StructuredData data={faqStructuredData} />
+      <StructuredData data={structuredData} id="webapp-schema" />
+      <StructuredData data={organizationData} id="organization-schema" />
+      <StructuredData data={websiteData} id="website-schema" />
+      <StructuredData data={faqStructuredData} id="faq-schema" />
       <PageLayout fullWidthHeader>
       {/* Header Ad */}
       <div className="border-b bg-gradient-to-r from-purple-50/50 via-pink-50/50 to-blue-50/50 dark:from-purple-950/20 dark:via-pink-950/20 dark:to-blue-950/20 shadow-sm">
         <div className="max-w-[1920px] mx-auto px-4 lg:px-8 xl:px-12">
           <div className="max-w-5xl mx-auto py-2">
             <div className="flex items-center justify-between mb-2">
-              <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 dark:from-purple-400 dark:via-pink-400 dark:to-blue-400 bg-clip-text text-transparent">
-                PDF Toolkit
-              </h1>
+              <Link href="/" className="flex items-center gap-2 shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt=""
+                  width={36}
+                  height={36}
+                  className="rounded-md"
+                  priority
+                />
+                <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 dark:from-purple-400 dark:via-pink-400 dark:to-blue-400 bg-clip-text text-transparent">
+                  PDF Toolkit
+                </h1>
+              </Link>
               {mounted && (
                 <Button
                   variant="outline"
@@ -359,6 +397,10 @@ export default function HomePage() {
       <footer className="border-t bg-card mt-12">
         <div className="max-w-[1920px] mx-auto px-4 lg:px-8 xl:px-12 py-8">
             <div className="text-center text-sm text-muted-foreground">
+              <div className="flex flex-wrap justify-center gap-4 mb-4">
+                <a href="/privacy" className="hover:underline">Privacy Policy</a>
+                <a href="/terms" className="hover:underline">Terms of Service</a>
+              </div>
               <p className="mb-2">
                 © 2026 Sunshine Tech Solutions. All rights reserved.
               </p>
