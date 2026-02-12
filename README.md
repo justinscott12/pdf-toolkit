@@ -143,7 +143,10 @@ The app supports Google AdSense integration. Set the `NEXT_PUBLIC_ADSENSE_PUBLIS
 3. **Redeploy**  
    Next.js bakes `NEXT_PUBLIC_*` into the build. After adding or changing the variable, trigger a **new deploy** (e.g. redeploy from Vercel/Netlify dashboard or push a commit). Ads will not show until a build that includes the publisher ID is live.
 
-4. **Optional: ad slots**  
+4. **ads.txt (AdSense authorization)**  
+   The site serves `/ads.txt` from your publisher ID. Once `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` is set and deployed, open `https://yoursite.com/ads.txt` and you should see the Google line. In AdSense, check **Account → Settings → ads.txt**; status will move from "Not found" to "Authorized" after Google crawls it (can take a few days).
+
+5. **Optional: ad slots**  
    For separate ad units (e.g. different slots per placement), create ad units in AdSense and pass `adSlot` to `<AdBanner adSlot="1234567890" />`. Without `adSlot`, responsive auto ads use your default account settings.
 
 - Header banner (horizontal)

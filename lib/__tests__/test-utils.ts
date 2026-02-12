@@ -22,6 +22,15 @@ export function fileLikeFromBytes(bytes: Uint8Array): FileLike {
   };
 }
 
+/** Create a PDF with N pages (for testing extract, remove, reorder). */
+export async function createPdfWithPages(pageCount: number): Promise<Uint8Array> {
+  const doc = await PDFDocument.create();
+  for (let i = 0; i < pageCount; i++) {
+    doc.addPage([300, 400]);
+  }
+  return doc.save();
+}
+
 /**
  * Create a File-like suitable for mergePDFs, splitPDF, etc. Cast to File when calling lib.
  */

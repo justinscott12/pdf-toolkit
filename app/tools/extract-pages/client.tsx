@@ -160,6 +160,24 @@ export function ExtractPagesClient() {
               onChange={(e) => setPageNumbers(e.target.value)}
               placeholder="1,3,5 or 1-5,7-10"
             />
+            <Button
+              onClick={handleProcess}
+              disabled={processing || parsedPages.length === 0}
+              className="w-full"
+              size="lg"
+            >
+              {processing ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Extracting...
+                </>
+              ) : (
+                <>
+                  <FileX className="mr-2 h-4 w-4" />
+                  Extract Pages
+                </>
+              )}
+            </Button>
             {processing && (
               <div className="flex items-center justify-center py-4">
                 <Loader2 className="h-5 w-5 animate-spin text-primary mr-2" />
