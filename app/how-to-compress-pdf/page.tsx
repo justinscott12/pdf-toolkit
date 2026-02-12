@@ -3,18 +3,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { StructuredData } from "@/components/StructuredData"
 import { AdBanner } from "@/components/AdBanner"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "How to Compress PDF - Reduce PDF File Size Online",
   description: "Learn how to compress PDF files and reduce file size. Free step-by-step guide to shrink PDF documents while maintaining quality. No sign-up required.",
   keywords: "how to compress pdf, reduce pdf size, compress pdf online, shrink pdf, reduce pdf file size",
   alternates: {
-    canonical: "https://pdftoolkit.com/how-to-compress-pdf",
+    canonical: `${BASE_URL}/how-to-compress-pdf`,
   },
   openGraph: {
     title: "How to Compress PDF - Reduce PDF File Size Online",
     description: "Step-by-step guide to compress PDF files and reduce file size for free. Maintain quality while shrinking your PDF.",
-    url: "https://pdftoolkit.com/how-to-compress-pdf",
+    url: `${BASE_URL}/how-to-compress-pdf`,
   },
 }
 

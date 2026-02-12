@@ -2,18 +2,19 @@ import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { AdBanner } from "@/components/AdBanner"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Free PDF Editor vs Paid Alternatives - PDF Tools Comparison",
   description: "Compare free PDF tools with paid software. Why PDF Toolkit is the best free PDF editor—merge, split, compress, edit PDFs with no subscription. Compare features and pricing.",
   keywords: "free pdf editor, pdf tools comparison, free pdf software, best pdf editor, pdf editor alternative",
   alternates: {
-    canonical: "https://pdftoolkit.com/pdf-tools-comparison",
+    canonical: `${BASE_URL}/pdf-tools-comparison`,
   },
   openGraph: {
     title: "Free PDF Editor vs Paid Alternatives - PDF Tools Comparison",
     description: "Compare free PDF tools with paid software. See why PDF Toolkit is the best free alternative.",
-    url: "https://pdftoolkit.com/pdf-tools-comparison",
+    url: `${BASE_URL}/pdf-tools-comparison`,
   },
 }
 

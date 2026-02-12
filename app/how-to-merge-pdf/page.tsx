@@ -3,18 +3,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { StructuredData } from "@/components/StructuredData"
 import { AdBanner } from "@/components/AdBanner"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "How to Merge PDF Files - Combine Multiple PDFs Into One",
   description: "Learn how to merge PDF files online for free. Step-by-step guide to combine multiple PDF documents into one. No sign-up, no software download required.",
   keywords: "how to merge pdf, combine pdf files, merge pdf online, combine multiple pdfs, merge pdf documents",
   alternates: {
-    canonical: "https://pdftoolkit.com/how-to-merge-pdf",
+    canonical: `${BASE_URL}/how-to-merge-pdf`,
   },
   openGraph: {
     title: "How to Merge PDF Files - Combine Multiple PDFs Into One",
     description: "Step-by-step guide to merge PDF files online for free. Combine multiple PDFs into one document.",
-    url: "https://pdftoolkit.com/how-to-merge-pdf",
+    url: `${BASE_URL}/how-to-merge-pdf`,
   },
 }
 

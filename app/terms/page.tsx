@@ -1,12 +1,13 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of Service for PDF Toolkit. Read our acceptable use policy and disclaimers for using our free online PDF tools.",
   alternates: {
-    canonical: "https://pdftoolkit.com/terms",
+    canonical: `${BASE_URL}/terms`,
   },
   robots: {
     index: true,
@@ -33,7 +34,7 @@ export default function TermsPage() {
 
         <h2>Acceptance of Terms</h2>
         <p>
-          By accessing and using PDF Toolkit (&quot;the Service&quot;) at pdftoolkit.com, you accept
+          By accessing and using PDF Toolkit (&quot;the Service&quot;) on this website, you accept
           and agree to be bound by these Terms of Service. If you do not agree to these terms,
           please do not use our Service.
         </p>

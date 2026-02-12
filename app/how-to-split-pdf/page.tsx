@@ -3,18 +3,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { StructuredData } from "@/components/StructuredData"
 import { AdBanner } from "@/components/AdBanner"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "How to Split PDF - Extract Pages or Split by Ranges",
   description: "Learn how to split PDF files online. Step-by-step guide to extract specific pages or split PDFs by page ranges. Free, no sign-up required.",
   keywords: "how to split pdf, extract pdf pages, split pdf online, split pdf by pages, extract pages from pdf",
   alternates: {
-    canonical: "https://pdftoolkit.com/how-to-split-pdf",
+    canonical: `${BASE_URL}/how-to-split-pdf`,
   },
   openGraph: {
     title: "How to Split PDF - Extract Pages or Split by Ranges",
     description: "Step-by-step guide to split PDF files and extract specific pages. Free online tool, no sign-up required.",
-    url: "https://pdftoolkit.com/how-to-split-pdf",
+    url: `${BASE_URL}/how-to-split-pdf`,
   },
 }
 

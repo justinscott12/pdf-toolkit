@@ -3,18 +3,19 @@ import Image from "next/image"
 import Link from "next/link"
 import { StructuredData } from "@/components/StructuredData"
 import { AdBanner } from "@/components/AdBanner"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "How to Edit PDF Online - Edit PDF Text Free",
   description: "Learn how to edit PDF text online for free. Step-by-step guide to edit PDF documents directly in your browser. No subscription, no software download required.",
   keywords: "how to edit pdf, edit pdf online, edit pdf text, free pdf editor, edit pdf text online",
   alternates: {
-    canonical: "https://pdftoolkit.com/how-to-edit-pdf",
+    canonical: `${BASE_URL}/how-to-edit-pdf`,
   },
   openGraph: {
     title: "How to Edit PDF Online - Edit PDF Text Free",
     description: "Step-by-step guide to edit PDF text online for free. No subscription or software required.",
-    url: "https://pdftoolkit.com/how-to-edit-pdf",
+    url: `${BASE_URL}/how-to-edit-pdf`,
   },
 }
 

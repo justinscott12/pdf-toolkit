@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import { BASE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://pdftoolkit.com'),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "Free PDF Editor - Edit PDF Text Online | 100% Free | No Subscription Required",
     template: "%s | Free PDF Editor - No Subscription Required",
@@ -57,12 +58,12 @@ export const metadata: Metadata = {
   creator: "PDF Toolkit",
   publisher: "PDF Toolkit",
   alternates: {
-    canonical: "https://pdftoolkit.com",
+    canonical: BASE_URL,
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://pdftoolkit.com",
+    url: BASE_URL,
     title: "Free PDF Toolkit - Merge, Split, Compress PDFs Online",
     description: "Free online PDF tools to merge, split, compress, rotate, and convert PDFs. No sign-up required. All processing happens in your browser.",
     siteName: "PDF Toolkit",
@@ -108,10 +109,31 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const adsenseId = process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {gaId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+              strategy="afterInteractive"
+            />
+            <Script
+              id="gtag-config"
+              strategy="afterInteractive"
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${gaId}');
+                `,
+              }}
+            />
+          </>
+        )}
         {adsenseId && (
           <Script
             async

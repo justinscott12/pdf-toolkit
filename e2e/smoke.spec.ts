@@ -43,7 +43,7 @@ test.describe("Smoke tests", () => {
   test("sitemap is reachable", async ({ request }) => {
     const res = await request.get("/sitemap.xml");
     expect(res.ok()).toBe(true);
-    expect(await res.text()).toContain("pdftoolkit.com");
+    expect(await res.text()).toMatch(/pdftoolkit\.(com|live)/);
   });
 
   test("robots.txt is reachable", async ({ request }) => {

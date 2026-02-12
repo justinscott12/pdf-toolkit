@@ -1,18 +1,19 @@
 import { Metadata } from "next"
 import { ReorderPagesClient } from "./client"
 import { StructuredData } from "@/components/StructuredData"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Reorder PDF Pages - Rearrange PDF Pages Online | Free Tool",
   description: "Reorder and rearrange pages in your PDF document. Free online tool to change page order in PDF. No sign-up required. All processing in your browser.",
   keywords: "reorder pdf pages, rearrange pdf pages, change pdf page order, reorder pages in pdf, reorder pdf online",
   alternates: {
-    canonical: "https://pdftoolkit.com/tools/reorder-pages",
+    canonical: `${BASE_URL}/tools/reorder-pages`,
   },
   openGraph: {
     title: "Reorder PDF Pages - Rearrange PDF Pages Online",
     description: "Free online tool to reorder and rearrange pages in your PDF document. No sign-up required.",
-    url: "https://pdftoolkit.com/tools/reorder-pages",
+    url: `${BASE_URL}/tools/reorder-pages`,
   },
 }
 
@@ -21,7 +22,7 @@ const structuredData = {
   "@type": "WebApplication",
   "name": "Reorder PDF Pages",
   "description": "Free online tool to reorder and rearrange pages in your PDF document",
-  "url": "https://pdftoolkit.com/tools/reorder-pages",
+  "url": `${BASE_URL}/tools/reorder-pages`,
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web Browser",
   "offers": {

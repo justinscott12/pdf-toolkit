@@ -1,18 +1,19 @@
 import { Metadata } from "next"
 import { RotatePDFClient } from "./client"
 import { StructuredData } from "@/components/StructuredData"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Rotate PDF Pages - Rotate PDF 90, 180, or 270 Degrees | Free Online Tool",
   description: "Rotate all pages in your PDF document by 90°, 180°, or 270°. Free online PDF rotator. No sign-up required. All processing in your browser.",
   keywords: "rotate pdf, pdf rotator, rotate pdf pages, pdf page rotation, rotate pdf online",
   alternates: {
-    canonical: "https://pdftoolkit.com/tools/rotate",
+    canonical: `${BASE_URL}/tools/rotate`,
   },
   openGraph: {
     title: "Rotate PDF Pages - Rotate PDF 90, 180, or 270 Degrees",
     description: "Free online tool to rotate PDF pages by 90°, 180°, or 270°. No sign-up required.",
-    url: "https://pdftoolkit.com/tools/rotate",
+    url: `${BASE_URL}/tools/rotate`,
   },
 }
 
@@ -21,7 +22,7 @@ const structuredData = {
   "@type": "WebApplication",
   "name": "Rotate PDF Pages",
   "description": "Free online tool to rotate PDF pages by 90°, 180°, or 270°",
-  "url": "https://pdftoolkit.com/tools/rotate",
+  "url": `${BASE_URL}/tools/rotate`,
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web Browser",
   "offers": {

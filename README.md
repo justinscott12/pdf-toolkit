@@ -250,16 +250,31 @@ The application can be deployed to:
 
 ### Environment Variables
 
-Copy `.env.example` to `.env.local` and set as needed. For production:
-- `NEXT_PUBLIC_BASE_URL` – Production URL (e.g. `https://pdftoolkit.com`) for sitemap and canonical URLs
-- `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` – Google AdSense publisher ID (enables ads site-wide)
-- `NEXT_PUBLIC_GOOGLE_VERIFICATION` – Google Search Console ownership meta tag (optional)
-- `NEXT_PUBLIC_BING_VERIFICATION` – Bing Webmaster Tools ownership meta tag (optional)
+Copy `.env.example` to `.env.local` and set as needed. **Never commit `.env` or `.env.local`** (they are gitignored). For production set these in your host’s dashboard (e.g. Netlify, Vercel):
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `NEXT_PUBLIC_BASE_URL` | No (defaults to https://pdftoolkit.live) | Canonical URL for sitemap, OG, and structured data |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | No | Google Analytics (GA4) measurement ID, e.g. `G-XXXXXXXXXX` |
+| `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID` | No | Google AdSense publisher ID to show ads |
+| `NEXT_PUBLIC_GOOGLE_VERIFICATION` | No | Google Search Console ownership meta value |
+| `NEXT_PUBLIC_BING_VERIFICATION` | No | Bing Webmaster Tools ownership meta value |
+
+### Netlify: Add environment variables
+
+1. Open [Netlify](https://app.netlify.com) → your site → **Site configuration** (or **Site settings**) → **Environment variables**.
+2. Click **Add a variable** or **Add environment variable** / **New variable**.
+3. Add each variable:
+   - **Key:** e.g. `NEXT_PUBLIC_BASE_URL`
+   - **Value:** your value (e.g. `https://pdftoolkit.live`)
+   - **Scopes:** check **Production** (and **Deploy previews** if you want them there).
+4. Add the rest: `NEXT_PUBLIC_GA_MEASUREMENT_ID`, `NEXT_PUBLIC_ADSENSE_PUBLISHER_ID`, etc., as needed.
+5. Save. Trigger a **new deploy** (e.g. **Deploys** → **Trigger deploy** → **Deploy site**) so the new variables are baked into the build.
 
 ### Going public checklist
 
 - [ ] Set production env vars (base URL, AdSense if desired, verification codes)
-- [ ] Confirm domain (e.g. pdftoolkit.com) and SSL
+- [ ] Confirm domain (e.g. pdftoolkit.live) and SSL
 - [ ] Submit sitemap: `https://yourdomain.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools
 - [ ] (Optional) Add AdSense site, get publisher ID, and enable ads
 - [ ] Test key tools (merge, split, compress, edit) and how-to pages on production

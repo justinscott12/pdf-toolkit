@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
+import { BASE_URL } from '@/lib/site'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pdftoolkit.com'
+  const baseUrl = BASE_URL
   const currentDate = new Date().toISOString()
 
   const tools = [

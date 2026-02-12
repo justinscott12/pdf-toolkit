@@ -11,6 +11,7 @@ import { AdBanner } from "@/components/AdBanner"
 import { PageLayout } from "@/components/PageLayout"
 import { Card, CardContent } from "@/components/ui/card"
 import { StructuredData } from "@/components/StructuredData"
+import { BASE_URL } from "@/lib/site"
 
 const tools = [
   {
@@ -103,7 +104,7 @@ export default function HomePage() {
     "@type": "WebApplication",
     "name": "PDF Toolkit",
     "description": "Free online PDF tools to merge, split, compress, rotate, convert PDFs to images, and more. No sign-up required.",
-    "url": "https://pdftoolkit.com",
+    "url": BASE_URL,
     "applicationCategory": "UtilityApplication",
     "operatingSystem": "Web Browser",
     "offers": {
@@ -132,10 +133,10 @@ export default function HomePage() {
   const organizationData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://pdftoolkit.com/#organization",
+    "@id": `${BASE_URL}/#organization`,
     "name": "PDF Toolkit",
-    "url": "https://pdftoolkit.com",
-    "logo": "https://pdftoolkit.com/icon-512.png",
+    "url": BASE_URL,
+    "logo": `${BASE_URL}/icon-512.png`,
     "description": "Free online PDF tools: merge, split, compress, edit, and convert PDFs. No sign-up. All processing in your browser."
   }
 
@@ -143,12 +144,12 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "PDF Toolkit",
-    "url": "https://pdftoolkit.com",
+    "url": BASE_URL,
     "description": "Free PDF editor and PDF tools online. Merge, split, compress, rotate, convert PDFs—no subscription required.",
-    "publisher": { "@id": "https://pdftoolkit.com/#organization" },
+    "publisher": { "@id": `${BASE_URL}/#organization` },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": { "@type": "EntryPoint", "urlTemplate": "https://pdftoolkit.com/tools/merge" },
+      "target": { "@type": "EntryPoint", "urlTemplate": `${BASE_URL}/tools/merge` },
       "query-input": "required name=search_term_string"
     }
   }

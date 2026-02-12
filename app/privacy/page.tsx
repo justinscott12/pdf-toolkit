@@ -1,12 +1,13 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { BASE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Privacy Policy for PDF Toolkit. Learn how we handle your data. All PDF processing happens in your browser - your files never leave your device.",
   alternates: {
-    canonical: "https://pdftoolkit.com/privacy",
+    canonical: `${BASE_URL}/privacy`,
   },
   robots: {
     index: true,
@@ -35,7 +36,7 @@ export default function PrivacyPage() {
         <p>
           PDF Toolkit (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
           This Privacy Policy explains how we collect, use, and disclose information when you use
-          our free online PDF tools at pdftoolkit.com.
+          our free online PDF tools on this website.
         </p>
 
         <h2>Your Data and PDF Processing</h2>
